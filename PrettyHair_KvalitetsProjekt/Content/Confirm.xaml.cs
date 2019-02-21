@@ -1,5 +1,4 @@
-﻿using PrettyHair_KvalitetsProjekt.Content;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,24 +10,28 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace PrettyHair_KvalitetsProjekt
+namespace PrettyHair_KvalitetsProjekt.Content
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Confirm.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Confirm : Window
     {
-        public MainWindow()
+        public Confirm()
         {
             InitializeComponent();
         }
 
-        private void RecieveOrder_Click(object sender, RoutedEventArgs e)
+        private void ConfirmationTrue_Click(object sender, RoutedEventArgs e)
         {
-            ContentFrame.NavigationService.Navigate(new Content.RecieveOrderMainPage());
+            this.DialogResult = true;
+        }
+
+        private void ConfirmationFalse_Click(object sender, RoutedEventArgs e)
+        {
+            this.DialogResult = false;
         }
     }
 }

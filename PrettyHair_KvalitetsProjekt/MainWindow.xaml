@@ -7,6 +7,23 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        
+        <TextBlock Text="Logo here" Margin="10,29,632,309" FontSize="20" Background="#FF8D6565" />
+        <TextBlock Text="Pretty Hair System" 
+                   VerticalAlignment="Top" Margin="350, 10, 10, 10" 
+                   FontSize="50">
+            <TextBlock.Effect>
+                <DropShadowEffect/>
+            </TextBlock.Effect>
+        </TextBlock>
+        <StackPanel HorizontalAlignment="Left" Width="150" Margin="10,140,0,29">
+            <Button Name="RecieveOrder" Content="Modtag ordre" Click="RecieveOrder_Click"
+                    Height="50" FontSize="20"/>
+            <Button Content="Ny UseCase" Height="50" FontSize="20"/>
+            <Button Content="Ny UseCase" Height="50" FontSize="20"/>
+            <Button Content="Ny UseCase" Height="50" FontSize="20"/>
+            <Button Content="Ny UseCase" Height="50" FontSize="20"/>
+        </StackPanel>
+        <Frame Name="ContentFrame" Margin="185,110,10,10"
+                   NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>

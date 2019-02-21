@@ -16,7 +16,7 @@
                Background="White" Margin="259,182,325,182"/>
         <Button Name="searchCustomerId" Content="Søg" Click="SearchCustomerId_Click"
                 FontSize="25"
-               Margin="375,180,277,182"/>
+               Margin="375,182,277,182"/>
         
         <Button Content="Opret ny kunde?" FontSize="20"
                MaxHeight="30" MaxWidth="200" 

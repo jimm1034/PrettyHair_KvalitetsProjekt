@@ -6,7 +6,25 @@ using System.Threading.Tasks;
 
 namespace DomainLayer
 {
-    public class Product
-    {
-    }
+	public class Product
+	{
+		private string productId;
+		private string name;
+
+
+		public string ProductId { get { return this.name; } set { this.name = value; } }
+		public string Name { get { return this.name; } set { this.name = value; } }
+
+
+		public Product(string productId, string name)
+		{
+			ProductId = productId;
+			Name = name;
+		}
+
+		public Type Method(Type t)
+		{
+			throw new NotImplementedException();
+		}
+	}
 }

@@ -9,19 +9,28 @@ namespace DomainLayer
 	public class Customer
 	{
 		private int customerId;
-		private string name;
+		private string firstName;
+		private string lastName;
 		private string address;
 
 		public int CustomerId { get { return this.customerId; } set { this.customerId = value; } }
-		public string Name { get { return this.name; } set { this.name = value; } }
+		public string FirstName { get { return this.firstName; } set { this.firstName = value; } }
+		public string LastName { get { return this.lastName; } set { this.lastName = value; } }
+		public string FullName { get { return FirstName + " " + LastName; } }
 		public string Address { get { return this.address; } set { this.address = value; } }
 
 
-		public Customer(int customerId, string name, string address)
+		public Customer(int customerId, string fname, string lname, string address)
 		{
 			CustomerId = customerId;
-			Name = name;
+			FirstName = fname;
+			LastName = lname;
 			Address = address;
+		}
+
+		public Customer(int customerId, string fname, string lname) : this(customerId, fname, lname, "NOT GIVEN")
+		{
+
 		}
 
 		public Type Method(Type t)

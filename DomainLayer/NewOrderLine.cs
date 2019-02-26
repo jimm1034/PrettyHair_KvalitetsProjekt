@@ -11,7 +11,7 @@ namespace DomainLayer
 		private int quantity;
 		private float price;
 
-		public int Quantity { get { return this.quantity} set { this.quantity = value; } }
+		public int Quantity { get { return this.quantity; } set { this.quantity = value; } }
 		public float Price { get { return this.price; } set { this.price = value; } }
 
 		public NewOrderLine(int quantity, float price)

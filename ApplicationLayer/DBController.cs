@@ -14,7 +14,7 @@ namespace ApplicationLayer
             "Server=ealsql1.eal.local; Database= " +
             "A_DB09_2018; User Id= A_STUDENT09; Password=A_OPENDB09;";
 
-        public void NewCustomer(string fName, string lName, string adress, int zip )
+        public void NewCustomer(string fName, string lName, string adress, int zip)
         {
             InsertCustomer(fName, lName, adress, zip);
         }

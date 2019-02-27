@@ -11,7 +11,7 @@
     <Grid MinHeight="400" MinWidth="700"
           VerticalAlignment="Center" HorizontalAlignment="Center">
         
-        <TextBox Text="Kunde id" Name="customerId"
+        <TextBox Name="customerId"
                  FontSize="25" TextAlignment="Center" FontStyle="Italic" Foreground="Gray"
                Background="White" Margin="259,182,325,182"/>
         <Button Name="searchCustomerId" Content="Søg" Click="SearchCustomerId_Click"

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ApplicationForPrettyHair;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,6 +28,8 @@ namespace PrettyHair_KvalitetsProjekt.Content
 
         private void SaveNewCustomer_Click(object sender, RoutedEventArgs e)
         {
+            Controller controller = new Controller();
+            controller.NewCustomer(customerName.Text, customerAdress.Text);
             this.NavigationService.Navigate(new MakeOrder());
         }
     }

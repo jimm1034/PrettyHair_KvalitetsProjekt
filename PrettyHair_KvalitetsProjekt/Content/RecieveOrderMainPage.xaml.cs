@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ApplicationForPrettyHair;
 using PrettyHair_KvalitetsProjekt;
 
 namespace PrettyHair_KvalitetsProjekt.Content
@@ -28,6 +29,9 @@ namespace PrettyHair_KvalitetsProjekt.Content
 
         private void SearchCustomerId_Click(object sender, RoutedEventArgs e)
         {
+            Controller controller = new Controller();
+            controller.FindCustomer(customerId.Text);
+            MessageBox.Show("kunde " + controller.FindCustomer(customerId.Text));
 
             this.NavigationService.Navigate(new Content.MakeOrder());
         }

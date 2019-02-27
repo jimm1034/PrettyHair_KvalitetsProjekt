@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.28307.421
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PrettyHair_KvalitetsProjekt", "PrettyHair_KvalitetsProjekt\PrettyHair_KvalitetsProjekt.csproj", "{D3C465FD-8002-4491-9900-1BEBFFA67E6E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DomainLayer", "DomainLayer\DomainLayer.csproj", "{3B933556-BEE4-40CD-9BB3-70D083CFEA63}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApplicationLayer", "ApplicationLayer\ApplicationLayer.csproj", "{36612264-9D41-4BDC-AAD8-9A901F4D66D0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{D3C465FD-8002-4491-9900-1BEBFFA67E6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D3C465FD-8002-4491-9900-1BEBFFA67E6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D3C465FD-8002-4491-9900-1BEBFFA67E6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3B933556-BEE4-40CD-9BB3-70D083CFEA63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3B933556-BEE4-40CD-9BB3-70D083CFEA63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3B933556-BEE4-40CD-9BB3-70D083CFEA63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3B933556-BEE4-40CD-9BB3-70D083CFEA63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36612264-9D41-4BDC-AAD8-9A901F4D66D0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36612264-9D41-4BDC-AAD8-9A901F4D66D0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36612264-9D41-4BDC-AAD8-9A901F4D66D0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36612264-9D41-4BDC-AAD8-9A901F4D66D0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

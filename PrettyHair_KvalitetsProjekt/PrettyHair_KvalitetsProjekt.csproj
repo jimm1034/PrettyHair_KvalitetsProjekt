@@ -134,6 +134,10 @@
       <Project>{ECA7383E-6C7A-4161-A560-1FD5EDADDB42}</Project>
       <Name>ApplicationForPrettyHair</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ApplicationLayer\ApplicationLayer.csproj">
+      <Project>{36612264-9d41-4bdc-aad8-9a901f4d66d0}</Project>
+      <Name>ApplicationLayer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

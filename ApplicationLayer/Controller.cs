@@ -10,8 +10,9 @@ namespace ApplicationLayer
     public class Controller
     {
         private DBController dbCon = new DBController();
-        public void NewCustomer(string fName, string lName, string adress, int zip)
+        public void NewCustomer(string fName, string lName, string adress, string zipCode)
         {
+            int.TryParse(zipCode, out int zip);
             dbCon.NewCustomer(fName, lName, adress, zip);
         }
 

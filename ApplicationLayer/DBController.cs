@@ -18,7 +18,7 @@ namespace ApplicationLayer
         {
             InsertCustomer(fName, lName, adress, zip);
         }
-        public void InsertCustomer(string fName, string lName, string address, int zip)
+        private void InsertCustomer(string fName, string lName, string address, int zip)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
@@ -49,15 +49,17 @@ namespace ApplicationLayer
         }
         public string GetCustomer(int customerId)
         {
-            string customerName = null;
-            string customerAdress = null;
+            string fName = null;
+            string lName = null;
+            string adress = null;
+            string zip = null;
 
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 try
                 {
                     con.Open();
-                    SqlCommand cmd1 = new SqlCommand("spGetCustomer", con)
+                    SqlCommand cmd1 = new SqlCommand("spLookUpCustomer", con)
                     {
                         CommandType = CommandType.StoredProcedure
                     };
@@ -69,13 +71,16 @@ namespace ApplicationLayer
                     {
                         while (reader.Read())
                         {
-                            customerName = reader["CustomerName"].ToString();
-                            customerAdress = reader["CustomerAdress"].ToString();
+                            fName = reader["CustomerFirstName"].ToString();
+                            lName = reader["CustomerLastName"].ToString();
+                            adress = reader["StreetName"].ToString();
+                            zip = reader["ZipCode"].ToString();
+
                         }
                     }
                     return "\nID: " + customerId +
-                        "\nNavn: " + customerName +
-                        "\nAdresse: " + customerAdress;
+                        "\nNavn: " + fName + " " + lName + 
+                        "\nAdresse: " + adress + " " + zip;
                 }
                 catch (SqlException e)
                 {

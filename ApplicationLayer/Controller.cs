@@ -10,13 +10,14 @@ namespace ApplicationLayer
     public class Controller
     {
         private DBController dbCon = new DBController();
-        public void NewCustomer(string fName, string lName, string adress, string zipCode)
+        public void ConRegisterNewCustomer(string fName, string lName, string adress, string zipCode)
         {
             int.TryParse(zipCode, out int zip);
-            dbCon.NewCustomer(fName, lName, adress, zip);
+			Customer c = new Customer(fName, lName, zip);
+            dbCon.ConRegisterNewCustomer(c);
         }
 
-        public string FindCustomer(string customerId)
+        public string ConFindCustomer(string customerId)
         {
             int.TryParse(customerId, out int Id);
             dbCon.GetCustomer(Id);

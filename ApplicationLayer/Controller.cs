@@ -17,12 +17,9 @@ namespace ApplicationLayer
             dbCon.RegisterNewCustomer(c);
         }
 
-        public string ConFindCustomer(string customerId)
+        public bool ConCheckCustomer(string fullName, string address)
         {
-            int.TryParse(customerId, out int Id);
-            dbCon.GetCustomer(Id);
-
-            return dbCon.GetCustomer(Id);
+            return dbCon.CheckCustomer(fullName, address);
         }
 
         public string OrderByLine(string productTypeId, string quantity,
@@ -38,5 +35,8 @@ namespace ApplicationLayer
                 " Antal: " + quantity +
                 " Afleveres den: " + deliveryDate.ToString();
         }
+
+
+
     }
 }

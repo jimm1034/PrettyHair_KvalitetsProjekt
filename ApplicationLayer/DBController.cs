@@ -48,41 +48,48 @@ namespace ApplicationLayer
                 }
             }
         }
-        public string GetCustomer(int customerId)
+        public string CheckCustomer(string fullName, string address)
         {
-            string fName = null;
-            string lName = null;
-            string adress = null;
-            string zip = null;
+			string customerId = null;
+			string fName = null;
+			string lName = null;
+			string adress = null;
+			string zip = null;
+
+
+			string[] name = fullName.Split(' ');
 
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 try
                 {
                     con.Open();
-                    SqlCommand cmd1 = new SqlCommand("spLookUpCustomer", con)
+                    SqlCommand cmd1 = new SqlCommand("LookUpCustomer", con)
                     {
                         CommandType = CommandType.StoredProcedure
                     };
-                    cmd1.Parameters.Add(new SqlParameter("@CustomerId", customerId));
-                    cmd1.ExecuteNonQuery();
+                    cmd1.Parameters.Add(new SqlParameter("@CustomerFirstname", name[0]));
+					cmd1.Parameters.Add(new SqlParameter("@CustomerLastName", name[1]));
+					cmd1.Parameters.Add(new SqlParameter("@Address", address));
+					cmd1.ExecuteNonQuery();
 
-                    SqlDataReader reader = cmd1.ExecuteReader();
-                    if (reader.HasRows)
-                    {
-                        while (reader.Read())
-                        {
-                            fName = reader["CustomerFirstName"].ToString();
-                            lName = reader["CustomerLastName"].ToString();
-                            adress = reader["StreetName"].ToString();
-                            zip = reader["ZipCode"].ToString();
+					SqlDataReader reader = cmd1.ExecuteReader();
+					if (reader.HasRows)
+					{
+						while (reader.Read())
+						{
+							customerId = reader["CustomerId"].ToString();
+							fName = reader["CustomerFirstName"].ToString();
+							lName = reader["CustomerLastName"].ToString();
+							adress = reader["StreetName"].ToString();
+							zip = reader["ZipCode"].ToString();
 
-                        }
-                    }
-                    return "\nID: " + customerId +
-                        "\nNavn: " + fName + " " + lName + 
-                        "\nAdresse: " + adress + " " + zip;
-                }
+						}
+					}
+					return "\nID: " + customerId +
+						"\nNavn: " + fName + " " + lName +
+						"\nAdresse: " + adress + " " + zip;
+				}
                 catch (SqlException e)
                 {
                     return ("Et eller andet mærkværdigt, " +

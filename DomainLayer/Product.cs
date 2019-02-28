@@ -22,9 +22,5 @@ namespace DomainLayer
 			Name = name;
 		}
 
-		public Type Method(Type t)
-		{
-			throw new NotImplementedException();
-		}
 	}
 }

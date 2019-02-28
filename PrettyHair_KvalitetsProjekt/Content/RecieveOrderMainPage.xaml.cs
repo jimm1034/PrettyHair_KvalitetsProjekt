@@ -30,8 +30,8 @@ namespace PrettyHair_KvalitetsProjekt.Content
         private void SearchCustomerId_Click(object sender, RoutedEventArgs e)
         {
             Controller controller = new Controller();
-            controller.ConFindCustomer(customerId.Text);
-            MessageBox.Show("kunde " + controller.ConFindCustomer(customerId.Text));
+            controller.ConCheckCustomer(fullName.Text, adress.Text);
+            MessageBox.Show("kunde " + controller.ConCheckCustomer(fullName.Text, adress.Text));
 
             this.NavigationService.Navigate(new Content.MakeOrder());
         }

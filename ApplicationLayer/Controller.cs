@@ -17,7 +17,7 @@ namespace ApplicationLayer
             dbCon.RegisterNewCustomer(c);
         }
 
-        public bool ConCheckCustomer(string fullName, string address)
+        public string ConCheckCustomer(string fullName, string address)
         {
             return dbCon.CheckCustomer(fullName, address);
         }

@@ -5,7 +5,6 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using DomainLayer;
 
 namespace ApplicationLayer
 {
@@ -15,11 +14,11 @@ namespace ApplicationLayer
             "Server=ealsql1.eal.local; Database= " +
             "A_DB09_2018; User Id= A_STUDENT09; Password=A_OPENDB09;";
 
-        public void RegisterNewCustomer(Customer c)
+        public void NewCustomer(string fName, string lName, string adress, int zip)
         {
-            InsertCustomer(c);
+            InsertCustomer(fName, lName, adress, zip);
         }
-        public void InsertCustomer(Customer c)
+        private void InsertCustomer(string fName, string lName, string address, int zip)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
@@ -32,13 +31,13 @@ namespace ApplicationLayer
                         CommandType = CommandType.StoredProcedure
                     };
                     cmd1.Parameters.Add
-                        (new SqlParameter("@CustomerFirstName", c.FirstName));
+                        (new SqlParameter("@CustomerFirstName", fName));
                     cmd1.Parameters.Add
-                        (new SqlParameter("@CustomerLastName", c.LastName));
+                        (new SqlParameter("@CustomerLastName", lName));
                     cmd1.Parameters.Add
-                        (new SqlParameter("@CustomerStreetName", c.Address));
+                        (new SqlParameter("@CustomerStreetName", address));
                     cmd1.Parameters.Add
-                        (new SqlParameter("@CustomerZipCode", c.ZipCode));
+                        (new SqlParameter("@CustomerZipCode", zip));
                     cmd1.ExecuteNonQuery();
                 }
                 catch (SqlException e)
@@ -50,15 +49,17 @@ namespace ApplicationLayer
         }
         public string GetCustomer(int customerId)
         {
-            string customerName = null;
-            string customerAdress = null;
+            string fName = null;
+            string lName = null;
+            string adress = null;
+            string zip = null;
 
             using (SqlConnection con = new SqlConnection(connectionString))
             {
                 try
                 {
                     con.Open();
-                    SqlCommand cmd1 = new SqlCommand("spGetCustomer", con)
+                    SqlCommand cmd1 = new SqlCommand("spLookUpCustomer", con)
                     {
                         CommandType = CommandType.StoredProcedure
                     };
@@ -70,13 +71,16 @@ namespace ApplicationLayer
                     {
                         while (reader.Read())
                         {
-                            customerName = reader["CustomerName"].ToString();
-                            customerAdress = reader["CustomerAdress"].ToString();
+                            fName = reader["CustomerFirstName"].ToString();
+                            lName = reader["CustomerLastName"].ToString();
+                            adress = reader["StreetName"].ToString();
+                            zip = reader["ZipCode"].ToString();
+
                         }
                     }
                     return "\nID: " + customerId +
-                        "\nNavn: " + customerName +
-                        "\nAdresse: " + customerAdress;
+                        "\nNavn: " + fName + " " + lName + 
+                        "\nAdresse: " + adress + " " + zip;
                 }
                 catch (SqlException e)
                 {

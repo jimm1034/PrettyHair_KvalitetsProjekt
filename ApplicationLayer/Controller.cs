@@ -14,7 +14,7 @@ namespace ApplicationLayer
         {
             int.TryParse(zipCode, out int zip);
 			Customer c = new Customer(fName, lName, zip);
-            dbCon.NewCustomer(c);
+            dbCon.RegisterNewCustomer(c);
         }
 
         public string FindCustomer(string customerId)

@@ -11,11 +11,11 @@
     <Grid MinHeight="400" MinWidth="700"
           VerticalAlignment="Center" HorizontalAlignment="Center">
         <Label Content="Fulde Navn" Margin="143,141,441,219" FontSize="20"/>
-        <TextBox Name="fullName"
+        <TextBox Name="adress"
                  FontSize="25" TextAlignment="Center" FontStyle="Italic" Foreground="Gray"
                Background="White" Margin="259,182,325,182"/>
         <Label Content="Adresse" Margin="259,141,325,219" FontSize="20"/>
-        <TextBox Name="adress"
+        <TextBox Name="fullName"
                  FontSize="25" TextAlignment="Center" FontStyle="Italic" Foreground="Gray"
                Background="White" Margin="143,182,441,182"/>
         <Button Name="searchCustomerId" Content="Søg" Click="SearchCustomerId_Click"

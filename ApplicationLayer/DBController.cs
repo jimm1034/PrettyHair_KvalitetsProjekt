@@ -64,13 +64,13 @@ namespace ApplicationLayer
                 try
                 {
                     con.Open();
-                    SqlCommand cmd1 = new SqlCommand("LookUpCustomer", con)
+                    SqlCommand cmd1 = new SqlCommand("spLookUpCustomer", con)
                     {
                         CommandType = CommandType.StoredProcedure
                     };
                     cmd1.Parameters.Add(new SqlParameter("@CustomerFirstname", name[0]));
 					cmd1.Parameters.Add(new SqlParameter("@CustomerLastName", name[1]));
-					cmd1.Parameters.Add(new SqlParameter("@Address", address));
+					cmd1.Parameters.Add(new SqlParameter("@StreetName", address));
 					cmd1.ExecuteNonQuery();
 
 					SqlDataReader reader = cmd1.ExecuteReader();

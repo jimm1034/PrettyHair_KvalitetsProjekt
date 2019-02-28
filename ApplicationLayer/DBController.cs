@@ -5,6 +5,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DomainLayer;
 
 namespace ApplicationLayer
 {
@@ -14,11 +15,11 @@ namespace ApplicationLayer
             "Server=ealsql1.eal.local; Database= " +
             "A_DB09_2018; User Id= A_STUDENT09; Password=A_OPENDB09;";
 
-        public void NewCustomer(string fName, string lName, string adress, int zip)
+        public void RegisterNewCustomer(Customer c)
         {
-            InsertCustomer(fName, lName, adress, zip);
+            InsertCustomer(c);
         }
-        private void InsertCustomer(string fName, string lName, string address, int zip)
+        private void InsertCustomer(Customer c)
         {
             using (SqlConnection con = new SqlConnection(connectionString))
             {
@@ -31,13 +32,13 @@ namespace ApplicationLayer
                         CommandType = CommandType.StoredProcedure
                     };
                     cmd1.Parameters.Add
-                        (new SqlParameter("@CustomerFirstName", fName));
+                        (new SqlParameter("@CustomerFirstName", c.FirstName));
                     cmd1.Parameters.Add
-                        (new SqlParameter("@CustomerLastName", lName));
+                        (new SqlParameter("@CustomerLastName", c.LastName));
                     cmd1.Parameters.Add
-                        (new SqlParameter("@CustomerStreetName", address));
+                        (new SqlParameter("@CustomerStreetName", c.Address));
                     cmd1.Parameters.Add
-                        (new SqlParameter("@CustomerZipCode", zip));
+                        (new SqlParameter("@CustomerZipCode", c.ZipCode));
                     cmd1.ExecuteNonQuery();
                 }
                 catch (SqlException e)

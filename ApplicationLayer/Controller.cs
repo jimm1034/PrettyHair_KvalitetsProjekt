@@ -14,10 +14,10 @@ namespace ApplicationLayer
         {
             int.TryParse(zipCode, out int zip);
 			Customer c = new Customer(fName, lName, zip);
-            dbCon.RegisterNewCustomer(c);
+            dbCon.ConRegisterNewCustomer(c);
         }
 
-        public string FindCustomer(string customerId)
+        public string ConFindCustomer(string customerId)
         {
             int.TryParse(customerId, out int Id);
             dbCon.GetCustomer(Id);

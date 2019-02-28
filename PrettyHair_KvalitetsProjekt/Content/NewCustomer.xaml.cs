@@ -29,7 +29,7 @@ namespace PrettyHair_KvalitetsProjekt.Content
         private void SaveNewCustomer_Click(object sender, RoutedEventArgs e)
         {
             Controller controller = new Controller();
-            controller.NewCustomer(fName.Text, lName.Text, adress.Text, zipCode.Text);
+            controller.ConRegisterNewCustomer(fName.Text, lName.Text, adress.Text, zipCode.Text);
             this.NavigationService.Navigate(new MakeOrder());
         }
     }

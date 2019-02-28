@@ -36,13 +36,13 @@ namespace PrettyHair_KvalitetsProjekt.Content
         private void SaveOrder_Click(object sender, RoutedEventArgs e)
         {
             Controller controller = new Controller();
-            controller.OrderByLine(productTypeId.Text, quantity.Text,
+            controller.ConCreateNewOrder(productTypeId.Text, quantity.Text,
                                     deliveryDate.Text);
 
             Confirm popup = new Confirm();
             if (popup.ShowDialog().Value == true)
             {
-                MessageBox.Show(controller.OrderByLine(productTypeId.Text, quantity.Text,
+                MessageBox.Show(controller.ConCreateNewOrder(productTypeId.Text, quantity.Text,
                                     deliveryDate.Text) +
                 "\nOrdre blev gemt");
                 this.Content = null;

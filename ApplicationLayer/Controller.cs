@@ -25,7 +25,7 @@ namespace ApplicationLayer
             return dbCon.GetCustomer(Id);
         }
 
-        public string OrderByLine(string productTypeId, string quantity,
+        public string ConCreateNewOrder(string productTypeId, string quantity,
                                     string deliveryDate)
         {
             List<string> orderLines = new List<string>();

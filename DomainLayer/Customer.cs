@@ -8,14 +8,11 @@ namespace DomainLayer
 {
 	public class Customer
 	{
-		private int customerId;
 		private string firstName;
 		private string lastName;
 		private string address;
         private int zip;
 
-		public int CustomerId
-        { get { return this.customerId; } set { this.customerId = value; } }
 		public string FirstName
         { get { return this.firstName; } set { this.firstName = value; } }
 		public string LastName
@@ -28,18 +25,17 @@ namespace DomainLayer
         { get { return this.zip; } set { this.zip = value; } }
 
 
-        public Customer(int customerId, string fName, string lName, 
+        public Customer(string fName, string lName, 
             string address, int zip)
 		{
-			CustomerId = customerId;
 			FirstName = fName;
 			LastName = lName;
 			Address = address;
             ZipCode = zip;
 		}
 
-		public Customer(int customerId, string fName, string lName, int zip) : 
-            this(customerId, fName, lName, "NOT GIVEN", zip)
+		public Customer(string fName, string lName, int zip) : 
+            this(fName, lName, "NOT GIVEN", zip)
 		{
 
 		}
